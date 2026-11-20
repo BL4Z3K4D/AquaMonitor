@@ -10,6 +10,6 @@ public final class CreateSamplingPlanCommandFromResourceAssembler {
     }
 
     public static CreateSamplingPlanCommand toCommand(CreateSamplingPlanResource resource) {
-        return new CreateSamplingPlanCommand(new PlanCode(resource.planCode()));
+        return new CreateSamplingPlanCommand(new PlanCode(resource.getPlanCode()), resource.getStatus());
     }
 }

@@ -13,10 +13,11 @@ public final class SamplingPlanPersistenceMapper {
         var entity = new SamplingPlanEntity();
         entity.setId(samplingPlan.getId());
         entity.setPlanCode(samplingPlan.getPlanCode().code());
+        entity.setStatus(samplingPlan.getStatus());
         return entity;
     }
 
     public static SamplingPlan toDomain(SamplingPlanEntity entity) {
-        return SamplingPlan.rehydrate(entity.getId(), new PlanCode(entity.getPlanCode()));
+        return SamplingPlan.rehydrate(entity.getId(), new PlanCode(entity.getPlanCode()), entity.getStatus());
     }
 }
