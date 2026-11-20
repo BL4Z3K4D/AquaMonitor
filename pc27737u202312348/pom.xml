@@ -5,14 +5,14 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.2.0</version>
+        <version>4.0.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.learningcenterplatform</groupId>
+    <groupId>com.aquamonitor.platform.u202312348</groupId>
     <artifactId>pc27737u202312348</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>pc27737u202312348</name>
-    <description>pc27737u202312348</description>
+    <description>AquaMonitor sampling plans API</description>
     <url/>
     <licenses>
         <license/>
