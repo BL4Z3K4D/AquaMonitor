@@ -10,6 +10,13 @@ public final class SamplingPlanResourceFromAggregateAssembler {
 
     public static SamplingPlanResource toResource(SamplingPlan samplingPlan) {
         return new SamplingPlanResource(samplingPlan.getId(), samplingPlan.getPlanCode().code(),
-            samplingPlan.getStatus().name());
+            samplingPlan.getStationId().value().toString(),
+            samplingPlan.getSamplingWindow().startDate().toString(),
+            samplingPlan.getSamplingWindow().endDate().toString(),
+            samplingPlan.getSampleVolume().quantity(),
+            samplingPlan.getSampleVolume().unit(),
+            samplingPlan.getPriorityLevel().value(),
+            samplingPlan.getStatus().name(),
+            samplingPlan.getSamplingNotes());
     }
 }

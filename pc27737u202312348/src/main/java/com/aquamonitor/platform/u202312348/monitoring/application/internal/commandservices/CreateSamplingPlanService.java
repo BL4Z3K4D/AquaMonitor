@@ -26,7 +26,9 @@ public class CreateSamplingPlanService implements CreateSamplingPlanUseCase {
             return new Result.Failure<>(DUPLICATE_CODE_MESSAGE);
         }
         try {
-            return new Result.Success<>(repository.save(SamplingPlan.create(command.planCode(), command.status())));
+            return new Result.Success<>(repository.save(SamplingPlan.create(command.planCode(), command.stationId(),
+                command.samplingWindow(), command.sampleVolume(), command.priorityLevel(), command.status(),
+                command.samplingNotes())));
         } catch (DuplicatePlanCodeException exception) {
             return new Result.Failure<>(DUPLICATE_CODE_MESSAGE);
         }

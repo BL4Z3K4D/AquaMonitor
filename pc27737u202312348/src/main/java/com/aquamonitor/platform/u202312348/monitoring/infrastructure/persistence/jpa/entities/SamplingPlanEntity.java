@@ -9,6 +9,8 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
+import java.time.LocalDate;
+import java.util.UUID;
 import com.aquamonitor.platform.u202312348.monitoring.domain.model.enums.SamplingPlanStatus;
 
 /** JPA persistence representation of a sampling plan. @author Yazid Said */
@@ -27,9 +29,30 @@ public class SamplingPlanEntity {
     @Column(name = "plan_code", nullable = false, length = 255)
     private String planCode;
 
+    @Column(name = "station_id", nullable = false, columnDefinition = "BINARY(16)")
+    private UUID stationId;
+
+    @Column(name = "sampling_window_start_date", nullable = false)
+    private LocalDate samplingWindowStartDate;
+
+    @Column(name = "sampling_window_end_date", nullable = false)
+    private LocalDate samplingWindowEndDate;
+
+    @Column(name = "sample_volume_quantity", nullable = false)
+    private Integer sampleVolumeQuantity;
+
+    @Column(name = "sample_volume_unit", nullable = false, length = 50)
+    private String sampleVolumeUnit;
+
+    @Column(name = "priority_level", nullable = false)
+    private Integer priorityLevel;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
     private SamplingPlanStatus status;
+
+    @Column(name = "sampling_notes", length = 2000)
+    private String samplingNotes;
 
     public SamplingPlanEntity() {
     }
@@ -50,11 +73,67 @@ public class SamplingPlanEntity {
         this.planCode = planCode;
     }
 
+    public UUID getStationId() {
+        return stationId;
+    }
+
+    public void setStationId(UUID stationId) {
+        this.stationId = stationId;
+    }
+
+    public LocalDate getSamplingWindowStartDate() {
+        return samplingWindowStartDate;
+    }
+
+    public void setSamplingWindowStartDate(LocalDate samplingWindowStartDate) {
+        this.samplingWindowStartDate = samplingWindowStartDate;
+    }
+
+    public LocalDate getSamplingWindowEndDate() {
+        return samplingWindowEndDate;
+    }
+
+    public void setSamplingWindowEndDate(LocalDate samplingWindowEndDate) {
+        this.samplingWindowEndDate = samplingWindowEndDate;
+    }
+
+    public Integer getSampleVolumeQuantity() {
+        return sampleVolumeQuantity;
+    }
+
+    public void setSampleVolumeQuantity(Integer sampleVolumeQuantity) {
+        this.sampleVolumeQuantity = sampleVolumeQuantity;
+    }
+
+    public String getSampleVolumeUnit() {
+        return sampleVolumeUnit;
+    }
+
+    public void setSampleVolumeUnit(String sampleVolumeUnit) {
+        this.sampleVolumeUnit = sampleVolumeUnit;
+    }
+
+    public Integer getPriorityLevel() {
+        return priorityLevel;
+    }
+
+    public void setPriorityLevel(Integer priorityLevel) {
+        this.priorityLevel = priorityLevel;
+    }
+
     public SamplingPlanStatus getStatus() {
         return status;
     }
 
     public void setStatus(SamplingPlanStatus status) {
         this.status = status;
+    }
+
+    public String getSamplingNotes() {
+        return samplingNotes;
+    }
+
+    public void setSamplingNotes(String samplingNotes) {
+        this.samplingNotes = samplingNotes;
     }
 }

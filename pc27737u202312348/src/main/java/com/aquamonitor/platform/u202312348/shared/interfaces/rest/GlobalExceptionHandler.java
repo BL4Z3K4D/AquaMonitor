@@ -22,7 +22,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<ErrorResource> invalidArgument(IllegalArgumentException exception, Locale locale) {
         return ResponseEntity.badRequest()
-            .body(new ErrorResource(messages.get("sampling-plan.plan-code.required", locale)));
+            .body(new ErrorResource(messages.get("request.invalid", locale)));
     }
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
