@@ -12,7 +12,7 @@ public final class SamplingPlanPersistenceMapper {
     public static SamplingPlanEntity toEntity(SamplingPlan samplingPlan) {
         var entity = new SamplingPlanEntity();
         entity.setId(samplingPlan.getId());
-        entity.setPlanCode(samplingPlan.getPlanCode().value());
+        entity.setPlanCode(samplingPlan.getPlanCode().code());
         return entity;
     }
 

@@ -9,6 +9,6 @@ public final class SamplingPlanResourceFromAggregateAssembler {
     }
 
     public static SamplingPlanResource toResource(SamplingPlan samplingPlan) {
-        return new SamplingPlanResource(samplingPlan.getId(), samplingPlan.getPlanCode().value());
+        return new SamplingPlanResource(samplingPlan.getId(), samplingPlan.getPlanCode().code());
     }
 }

@@ -22,7 +22,7 @@ public class SamplingPlanRepositoryAdapter implements SamplingPlanRepository {
 
     @Override
     public boolean existsByPlanCode(PlanCode planCode) {
-        return repository.existsByPlanCode(planCode.value());
+        return repository.existsByPlanCode(planCode.code());
     }
 
     @Override
