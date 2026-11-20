@@ -1,4 +1,4 @@
-package com.learningcenterplatform.pc27737u202312348;
+package com.aquamonitor.platform.u202312348;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
