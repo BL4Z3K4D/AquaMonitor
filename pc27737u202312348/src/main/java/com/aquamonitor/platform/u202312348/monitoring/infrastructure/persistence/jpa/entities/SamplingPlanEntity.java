@@ -5,8 +5,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
+import com.aquamonitor.platform.u202312348.monitoring.domain.model.enums.SamplingPlanStatus;
 
 /** JPA persistence representation of a sampling plan. @author Yazid Said */
 @Entity
@@ -23,6 +26,10 @@ public class SamplingPlanEntity {
 
     @Column(name = "plan_code", nullable = false, length = 255)
     private String planCode;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 20)
+    private SamplingPlanStatus status;
 
     public SamplingPlanEntity() {
     }
@@ -41,5 +48,13 @@ public class SamplingPlanEntity {
 
     public void setPlanCode(String planCode) {
         this.planCode = planCode;
+    }
+
+    public SamplingPlanStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(SamplingPlanStatus status) {
+        this.status = status;
     }
 }
